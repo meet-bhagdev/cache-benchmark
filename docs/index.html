@@ -348,9 +348,9 @@
   <div class="container">
     <h2>Bottom line.</h2>
     <div class="summary-box">
-      In default config, Redis 8.6 and Valkey 9.1 trade blows. Redis 8.6 is slightly faster in read-heavy and balanced workloads. In the high-throughput pipeline test, they're effectively tied at 1.95M req/s.<br><br>
-      With io-threads enabled, Valkey 9.1 pulls ahead, hitting <strong>2.54M req/s</strong> - 15.5% faster than Redis 8.6. The gap is even wider in write-heavy workloads (+11.2%). Valkey's io-thread implementation scales significantly better: +30% vs Redis 8.6's +13%.<br><br>
-      If you're running with io-threads (and you probably should be), Valkey 9.1 is the faster engine. It also happens to be BSD-3 licensed.
+      Out of the box, with default settings, Redis 8.6 is faster. It beats Valkey 9.1 by 3-6% in most workloads, and wins read-heavy tests by 5%. In the high-throughput pipeline test, the two are neck and neck at 1.95M req/s.<br><br>
+      The picture changes when you turn on io-threads. Valkey 9.1 jumps to <strong>2.54M req/s</strong>, 15.5% ahead of Redis 8.6. Write-heavy workloads show an even bigger gap at 11.2%. The reason: Valkey gets 30% more throughput from io-threads, while Redis 8.6 gets 13%. Redis 7.2 gets almost nothing.<br><br>
+      Redis 8.6 still has an edge in tail latency (p99.9: 1.43ms vs 1.67ms) and read-only throughput (+2.8%). But for most production deployments running io-threads, Valkey 9.1 is the faster engine. It's also BSD-3 licensed.
     </div>
 
     <h3>Upgrade paths</h3>
