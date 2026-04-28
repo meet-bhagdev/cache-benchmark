@@ -302,14 +302,14 @@
 <section>
   <div class="container">
     <h2>Latency.</h2>
-    <p class="section-sub">GET latency from the high-throughput test with io-threads 6. Values in microseconds.</p>
+    <p class="section-sub">GET latency from the high-throughput test with io-threads 6. Values in milliseconds.</p>
     <table>
       <tr><th>Percentile</th><th>Redis 7.2</th><th>Redis 8.6</th><th>Valkey 9.1</th><th>Best</th></tr>
-      <tr><td>p50</td><td>1,974</td><td>917</td><td class="fw-bold c-green">802</td><td><span class="pill pill-green">Valkey</span></td></tr>
-      <tr><td>p90</td><td>2,056</td><td>1,032</td><td class="fw-bold c-green">958</td><td><span class="pill pill-green">Valkey</span></td></tr>
-      <tr><td>p99</td><td>2,179</td><td>1,302</td><td class="fw-bold c-green">1,179</td><td><span class="pill pill-green">Valkey</span></td></tr>
-      <tr><td>p99.9</td><td>2,392</td><td class="fw-bold c-red">1,433</td><td>1,671</td><td><span class="pill pill-green">Redis 8.6</span></td></tr>
-      <tr><td>p99.99</td><td>3,932</td><td class="fw-bold c-red">1,712</td><td>2,424</td><td><span class="pill pill-green">Redis 8.6</span></td></tr>
+      <tr><td>p50</td><td>1.97</td><td>0.92</td><td class="fw-bold c-green">0.80</td><td><span class="pill pill-green">Valkey</span></td></tr>
+      <tr><td>p90</td><td>2.06</td><td>1.03</td><td class="fw-bold c-green">0.96</td><td><span class="pill pill-green">Valkey</span></td></tr>
+      <tr><td>p99</td><td>2.18</td><td>1.30</td><td class="fw-bold c-green">1.18</td><td><span class="pill pill-green">Valkey</span></td></tr>
+      <tr><td>p99.9</td><td>2.39</td><td class="fw-bold c-red">1.43</td><td>1.67</td><td><span class="pill pill-green">Redis 8.6</span></td></tr>
+      <tr><td>p99.99</td><td>3.93</td><td class="fw-bold c-red">1.71</td><td>2.42</td><td><span class="pill pill-green">Redis 8.6</span></td></tr>
     </table>
   </div>
 </section>

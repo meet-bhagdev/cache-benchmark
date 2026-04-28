@@ -294,15 +294,15 @@ GET-Only:           🥇 Redis 8.6  1.63M      🥇 Redis 8.6   1.95M  (+2.8% vs
 
 8. **Zero errors across all tests** — all three engines are rock-solid.
 
-### Upgrade Recommendations
+### Upgrade paths
 
-| Current Version | Recommendation |
-|----------------|----------------|
-| Redis 7.2 → Valkey 9.1 (io-threads 6) | **🟢 Strongly recommended** — up to 146% throughput improvement |
-| Redis 7.2 → Redis 8.6 (io-threads 6) | **🟢 Strongly recommended** — up to 113% improvement |
-| Redis 8.6 → Valkey 9.1 (both with io-threads) | **🟢 Recommended for write-heavy/high-throughput** — 11-15% improvement |
-| Redis 8.6 (default) → Redis 8.6 (io-threads 6) | **Recommended** — 12-19% free throughput |
-| Valkey 9.0 → Valkey 9.1 (with io-threads 6) | **🟢 Strongly recommended** — 27-43% improvement from IO-thread batching |
+| From / To | Verdict | Gain |
+|-----------|---------|------|
+| Redis 7.2 → Valkey 9.1 (io-threads 6) | Do it | up to +146% |
+| Redis 7.2 → Redis 8.6 (io-threads 6) | Do it | up to +113% |
+| Redis 8.6 → Valkey 9.1 (both with io-threads) | Worth it | +11-15% |
+| Redis 8.6 (default) → Redis 8.6 (io-threads 6) | Free perf | +12-19% |
+| Any engine, enable io-threads | Free perf | +13-30% |
 
 ### The Bottom Line
 
