@@ -121,7 +121,7 @@
         <div class="stat-label">Redis 8.6 over Redis 7.2<br>in default config</div>
       </div>
       <div class="stat-card">
-        <div class="stat-value c-green">+43%</div>
+        <div class="stat-value c-green">+30%</div>
         <div class="stat-label">Valkey io-thread scaling<br>vs Redis 8.6's +13%</div>
       </div>
     </div>
@@ -161,6 +161,7 @@
 
 <hr class="section-divider">
 
+<!-- ROUND 1: Default config with Valkey 9.1 data -->
 <section>
   <div class="container">
     <h2>Round 1. Default config.</h2>
@@ -170,21 +171,21 @@
       <div class="bar-group-title">High Throughput - 32c / P64 / 60s</div>
       <div class="bar-row"><div class="bar-label">Redis 7.2</div><div class="bar-track"><div class="bar-fill bar-redis72" style="width:39%">996K</div></div></div>
       <div class="bar-row"><div class="bar-label">Redis 8.6</div><div class="bar-track"><div class="bar-fill bar-redis86" style="width:76%">1.95M</div></div></div>
-      <div class="bar-row"><div class="bar-label">Valkey 9</div><div class="bar-track"><div class="bar-fill bar-valkey" style="width:70%">1.78M</div></div></div>
+      <div class="bar-row"><div class="bar-label">Valkey 9</div><div class="bar-track"><div class="bar-fill bar-valkey" style="width:76%">1.95M</div></div></div>
     </div>
 
     <div class="bar-group">
       <div class="bar-group-title">GET-Only - 16c / P32 / 60s / prefilled</div>
       <div class="bar-row"><div class="bar-label">Redis 7.2</div><div class="bar-track"><div class="bar-fill bar-redis72" style="width:46%">956K</div></div></div>
       <div class="bar-row"><div class="bar-label">Redis 8.6</div><div class="bar-track"><div class="bar-fill bar-redis86" style="width:79%">1.63M</div></div></div>
-      <div class="bar-row"><div class="bar-label">Valkey 9</div><div class="bar-track"><div class="bar-fill bar-valkey" style="width:73%">1.49M</div></div></div>
+      <div class="bar-row"><div class="bar-label">Valkey 9</div><div class="bar-track"><div class="bar-fill bar-valkey" style="width:75%">1.55M</div></div></div>
     </div>
 
     <div class="bar-group">
       <div class="bar-group-title">Write-Heavy - 20:80 / 16c / P32 / 60s</div>
       <div class="bar-row"><div class="bar-label">Redis 7.2</div><div class="bar-track"><div class="bar-fill bar-redis72" style="width:52%">866K</div></div></div>
       <div class="bar-row"><div class="bar-label">Redis 8.6</div><div class="bar-track"><div class="bar-fill bar-redis86" style="width:80%">1.32M</div></div></div>
-      <div class="bar-row"><div class="bar-label">Valkey 9</div><div class="bar-track"><div class="bar-fill bar-valkey" style="width:75%">1.25M</div></div></div>
+      <div class="bar-row"><div class="bar-label">Valkey 9</div><div class="bar-track"><div class="bar-fill bar-valkey" style="width:77%">1.28M</div></div></div>
     </div>
 
     <div class="bar-group">
@@ -197,18 +198,19 @@
     <h3>Summary</h3>
     <table>
       <tr><th>Test</th><th>Redis 7.2</th><th>Redis 8.6</th><th>Valkey 9</th><th>Winner</th></tr>
-      <tr><td>Sanity (1 conn)</td><td class="fw-bold c-orange">9,837</td><td>9,528</td><td>8,071</td><td><span class="pill pill-green">Redis 7.2</span></td></tr>
-      <tr><td>High Throughput</td><td>995,805</td><td class="fw-bold c-red">1,946,566</td><td>1,782,683</td><td><span class="pill pill-green">Redis 8.6 +9%</span></td></tr>
-      <tr><td>GET-Only</td><td>956,276</td><td class="fw-bold c-red">1,631,693</td><td>1,493,256</td><td><span class="pill pill-green">Redis 8.6 +9%</span></td></tr>
-      <tr><td>Write-Heavy</td><td>866,366</td><td class="fw-bold c-red">1,322,115</td><td>1,246,482</td><td><span class="pill pill-green">Redis 8.6 +6%</span></td></tr>
-      <tr><td>Balanced</td><td>928,987</td><td class="fw-bold c-red">1,478,847</td><td>1,387,397</td><td><span class="pill pill-green">Redis 8.6 +7%</span></td></tr>
-      <tr><td>Saturation (p99.9 SLO)</td><td>178,311</td><td>178,308</td><td>178,312</td><td><span class="pill pill-gray">Tie</span></td></tr>
+      <tr><td>Sanity (1 conn)</td><td class="fw-bold c-orange">9,837</td><td>9,528</td><td>8,286</td><td><span class="pill pill-green">Redis 7.2</span></td></tr>
+      <tr><td>High Throughput</td><td>995,805</td><td class="fw-bold c-red">1,946,566</td><td>1,949,919</td><td><span class="pill pill-gray">Tie</span></td></tr>
+      <tr><td>GET-Only</td><td>956,276</td><td class="fw-bold c-red">1,631,693</td><td>1,550,637</td><td><span class="pill pill-green">Redis 8.6 +5%</span></td></tr>
+      <tr><td>Write-Heavy</td><td>866,366</td><td class="fw-bold c-red">1,322,115</td><td>1,281,363</td><td><span class="pill pill-green">Redis 8.6 +3%</span></td></tr>
+      <tr><td>Balanced</td><td>928,987</td><td class="fw-bold c-red">1,478,847</td><td>1,391,191</td><td><span class="pill pill-green">Redis 8.6 +6%</span></td></tr>
+      <tr><td>Saturation (p99.9 SLO)</td><td>178,311</td><td>178,308</td><td>178,311</td><td><span class="pill pill-gray">Tie</span></td></tr>
     </table>
   </div>
 </section>
 
 <hr class="section-divider">
 
+<!-- ROUND 2: IO-threads -->
 <section>
   <div class="container">
     <h2>Round 2. IO-threads enabled.</h2>
@@ -257,10 +259,11 @@
 
 <hr class="section-divider">
 
+<!-- IO-THREADS SCALING -->
 <section>
   <div class="container">
     <h2>IO-thread scaling.</h2>
-    <p class="section-sub">How much each engine gained from enabling io-threads 6.</p>
+    <p class="section-sub">How much each engine gained from enabling io-threads 6. High-throughput test.</p>
 
     <div class="delta-row">
       <div class="delta-card">
@@ -275,19 +278,19 @@
       </div>
       <div class="delta-card">
         <div class="delta-engine">Valkey 9</div>
-        <div class="delta-value c-green">+42.6%</div>
-        <div class="delta-detail">1.78M to 2.54M</div>
+        <div class="delta-value c-green">+30.3%</div>
+        <div class="delta-detail">1.95M to 2.54M</div>
       </div>
     </div>
 
     <h3>All tests</h3>
     <table>
       <tr><th>Test</th><th>Redis 7.2</th><th>Redis 8.6</th><th>Valkey 9</th></tr>
-      <tr><td>Sanity (1 conn)</td><td>+0.7%</td><td>-0.9%</td><td>+3.2%</td></tr>
-      <tr><td>High Throughput</td><td>+3.6%</td><td class="c-red">+13.0%</td><td class="fw-bold c-green">+42.6%</td></tr>
-      <tr><td>GET-Only</td><td>-2.7%</td><td class="c-red">+19.3%</td><td class="fw-bold c-green">+26.8%</td></tr>
-      <tr><td>Write-Heavy</td><td>-4.7%</td><td class="c-red">+12.4%</td><td class="fw-bold c-green">+32.5%</td></tr>
-      <tr><td>Balanced</td><td>-6.7%</td><td class="c-red">+19.4%</td><td class="fw-bold c-green">+27.7%</td></tr>
+      <tr><td>Sanity (1 conn)</td><td>+0.7%</td><td>-0.9%</td><td>+0.5%</td></tr>
+      <tr><td>High Throughput</td><td>+3.6%</td><td class="c-red">+13.0%</td><td class="fw-bold c-green">+30.3%</td></tr>
+      <tr><td>GET-Only</td><td>-2.7%</td><td class="c-red">+19.3%</td><td class="fw-bold c-green">+22.1%</td></tr>
+      <tr><td>Write-Heavy</td><td>-4.7%</td><td class="c-red">+12.4%</td><td class="fw-bold c-green">+28.9%</td></tr>
+      <tr><td>Balanced</td><td>-6.7%</td><td class="c-red">+19.4%</td><td class="fw-bold c-green">+27.4%</td></tr>
       <tr><td>Saturation</td><td>0%</td><td>0%</td><td>0%</td></tr>
     </table>
   </div>
@@ -295,6 +298,7 @@
 
 <hr class="section-divider">
 
+<!-- LATENCY -->
 <section>
   <div class="container">
     <h2>Latency.</h2>
@@ -312,12 +316,13 @@
 
 <hr class="section-divider">
 
+<!-- BOTTOM LINE -->
 <section>
   <div class="container">
     <h2>Bottom line.</h2>
     <div class="summary-box">
-      In default config, Redis 8.6 is faster across the board by 6-9%.<br><br>
-      With io-threads enabled, Valkey 9 pulls ahead, hitting <strong>2.54M req/s</strong> - 15.5% faster than Redis 8.6 in the same config. The gap widens further in write-heavy workloads (+11.2%).<br><br>
+      In default config, Redis 8.6 and Valkey 9 trade blows. Redis 8.6 is slightly faster in read-heavy and balanced workloads. In the high-throughput pipeline test, they're effectively tied at 1.95M req/s.<br><br>
+      With io-threads enabled, Valkey 9 pulls ahead, hitting <strong>2.54M req/s</strong> - 15.5% faster than Redis 8.6. The gap is even wider in write-heavy workloads (+11.2%). Valkey's io-thread implementation scales significantly better: +30% vs Redis 8.6's +13%.<br><br>
       If you're running with io-threads (and you probably should be), Valkey 9 is the faster engine. It also happens to be BSD-3 licensed.
     </div>
 
@@ -327,7 +332,7 @@
       <tr><td>Redis 7.2 to Valkey 9 (io-threads)</td><td><span class="pill pill-green">Do it</span></td><td>up to +146%</td></tr>
       <tr><td>Redis 7.2 to Redis 8.6 (io-threads)</td><td><span class="pill pill-green">Do it</span></td><td>up to +113%</td></tr>
       <tr><td>Redis 8.6 to Valkey 9 (both io-threads)</td><td><span class="pill pill-green">Worth it</span></td><td>+11-15%</td></tr>
-      <tr><td>Any engine, enable io-threads</td><td><span class="pill pill-green">Free perf</span></td><td>+13-43%</td></tr>
+      <tr><td>Any engine, enable io-threads</td><td><span class="pill pill-green">Free perf</span></td><td>+13-30%</td></tr>
     </table>
   </div>
 </section>
