@@ -110,19 +110,19 @@
 <section>
   <div class="container">
     <h2>What we found.</h2>
-    <p class="section-sub">The short version.</p>
+    <p class="section-sub">It depends on the config.</p>
     <div class="stat-row">
       <div class="stat-card">
-        <div class="stat-value c-green">+15.5%</div>
-        <div class="stat-label">Valkey 9.1 over Redis 8.6<br>with io-threads enabled</div>
+        <div class="stat-value c-red">3-6%</div>
+        <div class="stat-label">Redis 8.6 faster than Valkey 9.1<br>in default (single-threaded) config</div>
       </div>
       <div class="stat-card">
-        <div class="stat-value c-red">+96%</div>
-        <div class="stat-label">Redis 8.6 over Redis 7.2<br>in default config</div>
+        <div class="stat-value c-green">11-15%</div>
+        <div class="stat-label">Valkey 9.1 faster than Redis 8.6<br>with io-threads (high-throughput, writes)</div>
       </div>
       <div class="stat-card">
-        <div class="stat-value c-green">+30%</div>
-        <div class="stat-label">Valkey io-thread scaling<br>vs Redis 8.6's +13%</div>
+        <div class="stat-value c-orange">+96%</div>
+        <div class="stat-label">Both Redis 8.6 and Valkey 9.1<br>over Redis 7.2</div>
       </div>
     </div>
   </div>
