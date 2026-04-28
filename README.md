@@ -1,6 +1,6 @@
-# 🚀 Cache Benchmark: Redis 7.2 vs Redis 8.6 vs Valkey 9
+# 🚀 Cache Benchmark: Redis 7.2 vs Redis 8.6 vs Valkey 9.1
 
-A comprehensive performance benchmark comparing **Redis 7.2**, **Redis 8.6**, and **Valkey 9** on AWS Graviton4 (c8g) instances using [valkey-lab](https://github.com/ksmotiv8/cachecannon) — a high-performance benchmark tool powered by `io_uring`.
+A comprehensive performance benchmark comparing **Redis 7.2**, **Redis 8.6**, and **Valkey 9.1** on AWS Graviton4 (c8g) instances using [valkey-lab](https://github.com/ksmotiv8/cachecannon) — a high-performance benchmark tool powered by `io_uring`.
 
 ## 📊 [View the Full Interactive Report →](https://meet-bhagdev.github.io/cache-benchmark/)
 
@@ -74,7 +74,7 @@ aws ec2 run-instances --image-id $AMI_ID --instance-type c8g.2xlarge \
   --user-data file://scripts/redis-userdata.sh \
   --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=redis86-server}]'
 
-# Launch Valkey 9 server
+# Launch Valkey 9.1 server
 aws ec2 run-instances --image-id $AMI_ID --instance-type c8g.2xlarge \
   --key-name YOUR_KEY --security-group-ids $SG_ID \
   --user-data file://scripts/valkey-userdata.sh \
